@@ -22,7 +22,7 @@ with integral bounds `a` and `b`, desired tolerance `tol` and users' parameters 
     test.integrate(func, a, b, tol, param);
 ```
 
-The users' parameters structure is defined in `Integrator.hpp` file:
+The users' parameters structure is defined in `Integrator.hpp` file as:
 
 ```cpp
 typedef struct
@@ -30,7 +30,7 @@ typedef struct
   vector<double>* value;
 } *Parameters;
 ```
-The in `main.cpp`, parameters are defined as:
+In `main.cpp`, user defined parameters are defined as:
 
 ```cpp
    double coef = 2.0;
