@@ -12,12 +12,33 @@ Simply include the header `AdaptiveIntegrator.hpp` in your code:
 ```
 Then create an integrator object specialized for the type of functional 
 you wish to integrate. In the simplest case this is just a normal function 
-with signature `double(const double)`, so the declaration looks like
+with signature `double(const double, void*)`, so the declaration looks like
 ```cpp
-    AdaptiveIntegrator<double(const double)> test
+    AdaptiveIntegrator<double(const double, void*)> test
 ```
 Finally to integrate your function, `func`, invoke the `integrate` method 
-with integral bounds `a` and `b` and desired tolerance `tol`:
+with integral bounds `a` and `b`, desired tolerance `tol` and users' parameters `param`:
 ```cpp
-    test.integrate(func, a, b, tol)
+    test.integrate(func, a, b, tol, param);
 ```
+
+The users' parameters structure is defined in `Integrator.hpp` file:
+
+```cpp
+typedef struct
+{
+  vector<double>* value;
+} *Parameters;
+```
+The in `main.cpp`, parameters are defined as:
+
+```cpp
+   double coef = 2.0;
+   
+   Parameters param;
+   param = (Parameters) malloc(sizeof *param);
+   param->value = new vector<double>();
+ 
+   param->value->push_back(coef);
+```
+
