@@ -40,5 +40,9 @@ In `main.cpp`, user defined parameters are defined as:
    param->value = new vector<double>();
  
    param->value->push_back(coef);
+   
+   // <some code lines...>
+   
+   free(param);
 ```
 
