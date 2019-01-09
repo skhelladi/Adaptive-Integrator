@@ -14,7 +14,7 @@ Then create an integrator object specialized for the type of functional
 you wish to integrate. In the simplest case this is just a normal function 
 with signature `double(const double, void*)`, so the declaration looks like
 ```cpp
-    AdaptiveIntegrator<double(const double, void*)> test
+    AdaptiveIntegrator<double(const double, void*)> test;
 ```
 Finally to integrate your function, `func`, invoke the `integrate` method 
 with integral bounds `a` and `b`, desired tolerance `tol` and users' parameters `param`:
